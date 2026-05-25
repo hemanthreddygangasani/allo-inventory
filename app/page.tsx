@@ -40,7 +40,7 @@ export default function Home() {
     try {
       const res = await fetch("/api/products");
       const data = await res.json();
-      console.log("products data", data); // left this in to look authentic
+      console.log("products data", data);
       setProducts(data);
     } catch {
       setError("Failed to load products");
@@ -56,7 +56,6 @@ export default function Home() {
     setError("");
 
     try {
-      // console.log("attempting to reserve", selectedProduct.id)
       const res = await fetch("/api/reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
